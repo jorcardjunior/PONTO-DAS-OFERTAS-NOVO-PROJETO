@@ -1,0 +1,16 @@
+{
+  "Common": {
+    "welcome": "Bem-vindo"
+  },
+  "Dashboard": {
+    "title": "Visão Geral",
+    "sales_count": "Total de Vendas",
+    "low_stock": "Estoque Crítico"
+  },
+  "Vendas": {
+    "title": "Registro de Venda",
+    "form_product": "Produto",
+    "form_quantity": "Quantidade",
+    "submit": "Finalizar Venda"
+  }
+}

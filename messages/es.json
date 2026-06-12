@@ -1,0 +1,16 @@
+{
+  "Common": {
+    "welcome": "Bienvenido"
+  },
+  "Dashboard": {
+    "title": "Panel de Control",
+    "sales_count": "Total de Ventas",
+    "low_stock": "Stock Crítico"
+  },
+  "Vendas": {
+    "title": "Registro de Venta",
+    "form_product": "Producto",
+    "form_quantity": "Cantidad",
+    "submit": "Finalizar Venta"
+  }
+}

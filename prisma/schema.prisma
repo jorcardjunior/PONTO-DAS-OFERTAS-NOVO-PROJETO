@@ -1,0 +1,129 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              String     @id @default(cuid())
+  email           String     @unique
+  name            String?
+  avatar          String?
+  role            String     @default("admin")
+  passwordHash    String?
+  resetToken      String?    @unique
+  resetTokenExpiry DateTime?
+  tenantId        String     @default("default")
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  products        Product[]
+  categories      Category[]
+  suppliers       Supplier[]
+  store           Store?
+  moves           Movement[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  color       String    @default("#10b981")
+  description String?
+  userId      String
+  tenantId    String    @default("default")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id])
+  products    Product[]
+}
+
+model Supplier {
+  id          String   @id @default(cuid())
+  name        String
+  contact     String?
+  email       String?
+  phone       String?
+  cnpj        String?
+  userId      String
+  tenantId    String   @default("default")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+  products    Product[]
+}
+
+model Product {
+  id           String     @id @default(cuid())
+  sku          String     @unique
+  name         String
+  description  String?
+  stock        Int        @default(0)
+  minStock     Int        @default(5)
+  price        Float
+  cost         Float      @default(0)
+  image        String?
+  marketplace  String?
+  details      Json?
+  categoryId   String?
+  supplierId   String?
+  userId       String
+  tenantId     String     @default("default")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  user         User       @relation(fields: [userId], references: [id])
+  category     Category?  @relation(fields: [categoryId], references: [id])
+  supplier     Supplier?  @relation(fields: [supplierId], references: [id])
+  sales        Sale[]
+  moves        Movement[]
+}
+
+model Sale {
+  id        String   @id @default(cuid())
+  productId String
+  quantity  Int
+  price     Float
+  total     Float
+  cost      Float    @default(0)
+  channel   String   @default("Loja Fisica")
+  date      DateTime @default(now())
+  userId    String
+  tenantId  String   @default("default")
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model Store {
+  id          String   @id @default(cuid())
+  name        String
+  cnpj        String?
+  ie          String?
+  phone       String?
+  whatsapp    String?
+  email       String?
+  cep         String?
+  address     String?
+  district    String?
+  city        String?
+  state       String?
+  userId      String   @unique
+  tenantId    String   @default("default")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model Movement {
+  id        String   @id @default(cuid())
+  type      String
+  quantity  Int
+  reason    String   @default("Ajuste manual")
+  date      DateTime @default(now())
+  productId String
+  userId    String
+  tenantId  String   @default("default")
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}

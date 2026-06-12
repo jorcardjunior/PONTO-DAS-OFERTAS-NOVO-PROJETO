@@ -1,0 +1,16 @@
+{
+  "Common": {
+    "welcome": "Welcome"
+  },
+  "Dashboard": {
+    "title": "Dashboard Overview",
+    "sales_count": "Total Sales",
+    "low_stock": "Low Stock"
+  },
+  "Vendas": {
+    "title": "Sales Record",
+    "form_product": "Product",
+    "form_quantity": "Quantity",
+    "submit": "Complete Sale"
+  }
+}

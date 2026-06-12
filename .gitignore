@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# History (contém envs antigos com credenciais)
+.history/
+
+# Env
+.env
+.env.local
+.env.production
