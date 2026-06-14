@@ -39,8 +39,8 @@ export default function LoginPage() {
       <AuroraBackground />
       <div className="relative w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-            <span className="text-2xl font-bold text-white">PO</span>
+          <div className="mx-auto mb-5 w-36 h-36 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl shadow-purple-500/20">
+            <img src="/logo-ponto-das-ofertas.jpeg" alt="Ponto das Ofertas" className="w-full h-full object-cover" />
           </div>
           <h1 className="text-2xl font-bold text-white">Ponto das Ofertas</h1>
           <p className="text-sm text-white/60 mt-1">Sistema de Gestão de Estoque</p>

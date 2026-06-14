@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 import {
   LayoutDashboard, Package, Tags, Truck, ShoppingCart,
   ArrowLeftRight, BarChart3, Settings, ChevronLeft, ChevronRight,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -92,8 +91,8 @@ export function Sidebar({ className }: { className?: string }) {
         <div className="flex items-center justify-between px-4 pt-5 pb-4">
           {!collapsed && (
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Sparkles size={16} className="text-on-primary" />
+              <div className="w-8 h-8 shrink-0">
+                <img src="/logo-ponto-das-ofertas.jpeg" alt="Ponto das Ofertas" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h1 className="text-sm font-bold text-theme-primary">
